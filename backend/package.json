@@ -1,0 +1,15 @@
+{
+  "name": "group-chat-backend",
+  "version": "1.0.0",
+  "description": "Backend for real time chat application",
+  "main": "index.js",
+  "type":"module", 
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "yesbee",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
