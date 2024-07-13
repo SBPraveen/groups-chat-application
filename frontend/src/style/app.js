@@ -28,6 +28,13 @@ const style = {
         display:"flex", 
         alignItems:"center", 
         justifyContent:"center"
+    },
+    serverDetails:{ 
+        width: "100%", 
+        height: "3%",
+        display:"flex", 
+        alignItems:"center", 
+        justifyContent:"flex-end" 
     }
 }
 

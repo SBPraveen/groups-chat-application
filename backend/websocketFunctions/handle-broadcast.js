@@ -1,7 +1,7 @@
 const handleBroadcast = (parsedData, ws, sessionStoreRooms) => {
     const { roomId, userName } = ws
     const room = sessionStoreRooms.get(roomId)
-    const users = room.keys()
+    const users = room?.keys() ? room?.keys() : []
     for (let user of users) {
         if (user !== userName) {
             const userWsConnection = room.get(user)

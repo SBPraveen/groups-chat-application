@@ -24,7 +24,9 @@ const SingleChat = ({ chat, userName }) => {
                 </Box>
                 :
                 <Box sx={style.chatJoinRoom}>
-                    <Typography variant='body2' sx={style.chatJoinRoomTypography}>{`${chat.userName} joined`}</Typography>
+                    <Typography variant='body2' sx={style.chatJoinRoomTypography}>
+                        {chat.action ==="joinRoom" ? `${chat.userName} joined`: `${chat.userName} left`}
+                    </Typography>
                 </Box>
 
             }

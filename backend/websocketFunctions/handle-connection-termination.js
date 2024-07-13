@@ -1,3 +1,5 @@
+import handleBroadcast from "./handle-broadcast.js"
+
 const handleConnectionTermination = (ws, sessionStoreRooms) => {
     const room = sessionStoreRooms.get(ws.roomId)
 
@@ -9,7 +11,9 @@ const handleConnectionTermination = (ws, sessionStoreRooms) => {
     else{
         room.delete(ws.userName)
     }
-    console.log(sessionStoreRooms);
+    //Inform other users in the room that the user had left
+    const message = {"action":"userLeft", "userName": ws.userName}
+    handleBroadcast(message, ws, sessionStoreRooms)
 }
 
 export default handleConnectionTermination

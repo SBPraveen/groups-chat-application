@@ -50,9 +50,12 @@ export const webSocketSendMessage = (messageObj) => {
     }
 }
 
-export const webSocketCloseConnection = (message) => {
+export const webSocketCloseConnection = (setChatData, setUserName, setRoomId) => {
     try {
         ws.close()
+        setChatData([]) 
+        setUserName("") 
+        setRoomId("")
     } catch (error) {
         console.log("Error while sending the message to the websocket server");
     }

@@ -39,7 +39,7 @@ function App() {
 
   const handleExitRoom = () => {
     setIsExitLoading(true)
-    webSocketCloseConnection()
+    webSocketCloseConnection(setChatData, setUserName, setRoomId)
     setIsExitLoading(false)
   }
 
@@ -51,10 +51,10 @@ function App() {
         </Box>
         <Grid container spacing={1} sx={style.form}>
           <Grid item xs={3} sx={style.gridItemStart}>
-            <CustomTextField placeholder={"Username"} setState={setUserName} />
+            <CustomTextField placeholder={"Username"} state={userName} setState={setUserName} />
           </Grid>
           <Grid item xs={3} sx={style.gridItem}>
-            <CustomTextField placeholder={"Room id"} setState={setRoomId} />
+            <CustomTextField placeholder={"Room id"} state={roomId} setState={setRoomId} />
           </Grid>
           <Grid item xs={1} sx={style.gridItemStart}>
             <IconButton Icon={() => <FlightTakeoffIcon />} buttonName={"Join"} iconColor={"success.main"} handleSubmit={handleJoinRoom} isLoading={isJoinLoading} />
@@ -66,7 +66,7 @@ function App() {
         <Box sx={style.chatBody}>
           <Chat chatData={chatData} userName={userName} setChatData={setChatData} />
         </Box>
-        <Box sx={{ width: "100%", height: "3%",display:"flex", alignItems:"center", justifyContent:"flex-end" }}>
+        <Box sx={style.serverDetails}>
           {isConnected &&
             <Box>
               <CircleIcon sx={{color:"success.main", fontSize:"10px"}}/>
