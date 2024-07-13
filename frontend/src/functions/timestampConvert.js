@@ -1,11 +1,9 @@
 const timeStampConvert = (time) => {
     // Create a new Date object from the timestamp
     const date = new Date(time);
-
-    // Extract hours, minutes, and seconds
+    // Extract hours, minutes
     let hours = date.getHours();
     const minutes = date.getMinutes();
-    const seconds = date.getSeconds();
 
     // Determine AM or PM suffix
     const ampm = hours >= 12 ? 'PM' : 'AM';
@@ -16,10 +14,9 @@ const timeStampConvert = (time) => {
 
     // Add leading zeros to minutes and seconds if needed
     const minutesStr = minutes < 10 ? '0' + minutes : minutes;
-    const secondsStr = seconds < 10 ? '0' + seconds : seconds;
 
     // Format the time string
-    const timeStr = `${hours}:${minutesStr}:${secondsStr} ${ampm}`;
+    const timeStr = `${hours}:${minutesStr} ${ampm}`;
 
     return timeStr;
 }

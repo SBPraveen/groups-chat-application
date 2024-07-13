@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Backend for real time chat application",
   "main": "index.js",
-  "type":"module", 
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "author": "yesbee",
   "license": "ISC",
   "dependencies": {
+    "uuid": "^10.0.0",
     "ws": "^8.18.0"
   }
 }

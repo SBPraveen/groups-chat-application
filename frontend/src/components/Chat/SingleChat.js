@@ -5,19 +5,19 @@ import timeStampConvert from '../../functions/timestampConvert'
 
 const SingleChat = ({ chat, userName }) => {
     return (
-        <Box sx={style.singleChat}>
+        <Box sx={{...style.singleChat, justifyContent: userName === chat.userName ? "flex-end" : "flex-start"}}>
             {chat.action === "broadcast" ?
                 <Box sx={style.chatBroadcast}>
-                    <Box>
-                        <Box>
-                            <Typography variant='body2' sx={userName === chat.userName ? { color: "success.main" } : { color: "fail.main" }}>{chat.userName}</Typography>
+                    <Box sx={style.singleChatContainer}>
+                        <Box sx={{height:"20%"}}>
+                            <Typography variant='body2' sx={userName === chat.userName ? { color: "success.main",  fontWeight: 600} : { color: "fail.main", fontWeight: 600}}>{chat.userName}</Typography>
                         </Box>
-                        <Box>
-                            <Box>
-                                <Typography variant='body2' sx={userName === chat.userName ? { color: "success.main" } : { color: "fail.main" }}>{chat.message}</Typography>
+                        <Box sx={style.chatMessageTimeSection}>
+                            <Box sx={{width:"85%"}}>
+                                <Typography variant='subtitle1' sx={style.chatMessageText}>{chat.message}</Typography>
                             </Box>
-                            <Box>
-                                <Typography variant='body2' sx={userName === chat.userName ? { color: "success.main" } : { color: "fail.main" }}>{timeStampConvert(chat.timestamp)}</Typography>
+                            <Box sx={style.chatTimestamp}>
+                                <Typography variant="caption" sx={{ color: "text.disabled" }}>{timeStampConvert(chat.timeStamp)}</Typography>
                             </Box>
                         </Box>
                     </Box>

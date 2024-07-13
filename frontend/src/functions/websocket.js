@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 let ws, nameUser
 
-export const initiateWebSocketConnection = (userName, roomId, setIsConnected, chatData, setChatData) => {
+export const initiateWebSocketConnection = (userName, roomId, setIsConnected, chatData, setChatData, setServerId) => {
     try {
         ws = new WebSocket("ws://localhost:8080")
 
@@ -28,8 +28,12 @@ export const initiateWebSocketConnection = (userName, roomId, setIsConnected, ch
 
         ws.addEventListener("message", (event) => {
             let message = JSON.parse(event.data)
-            let tempChatData = JSON.parse(JSON.stringify(chatData))
-            setChatData([...tempChatData, message])
+            if(message.action === "serverDetails"){
+                setServerId(message.serverId)
+            }
+            else{
+                setChatData(chatData => [...chatData, message])
+            }     
         });
         return true
     } catch (error) {
@@ -38,9 +42,8 @@ export const initiateWebSocketConnection = (userName, roomId, setIsConnected, ch
     }
 }
 
-export const webSocketSendMessage = (message) => {
+export const webSocketSendMessage = (messageObj) => {
     try {
-        const messageObj = { "action": "broadcast", "message": message, timeStamp: Date.now(), userName: nameUser, msgId:uuidv4()}
         ws.send(JSON.stringify(messageObj))
     } catch (error) {
         console.log("Error while sending the message to the websocket server");

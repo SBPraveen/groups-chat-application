@@ -1,11 +1,11 @@
 import { InputBase } from '@mui/material';
 import React from 'react'
 
-const CustomTextField = ({ placeholder, multiline = false, rows = 0, sx = {}, setState }) => {
+const CustomTextField = ({ placeholder,sx = {}, setState }) => {
     return (
         <InputBase
-            multiline={multiline}
-            rows={rows}
+            multiline={false}
+            rows={0}
             onChange = {(event) => setState(event.target.value)}
             placeholder={placeholder}
             sx={{

@@ -1,3 +1,5 @@
+import handleBroadcast from "./handle-broadcast.js"
+
 const handleJoinRoom = (parsedData, ws, sessionStoreRooms) => {
     const {roomId, userName} = parsedData
 
@@ -16,6 +18,9 @@ const handleJoinRoom = (parsedData, ws, sessionStoreRooms) => {
         newRoom.set(userName, ws)
         sessionStoreRooms.set(roomId, newRoom)
     }
+
+    //Inform other users in the room about the new user
+    handleBroadcast(parsedData, ws, sessionStoreRooms)
 }
 
 export default handleJoinRoom

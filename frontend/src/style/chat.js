@@ -1,18 +1,22 @@
 const style = {
     chatComponent: {
-        width:"80%",
-        height:"100%",
-        bgcolor:"primary.light",
-        borderRadius:"21px"
+        width: "80%",
+        height: "100%",
+        bgcolor: "primary.light",
+        borderRadius: "21px",
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent:"space-around"
     },
     chatMessages: {
-        background:"yellow",
-        height: "80%", 
-        width: "100%", 
-        overflowY: "auto", 
-        overflowX: "hidden", 
+        height: "75%",
+        width: "100%",
+        overflowY: "auto",
+        overflowX: "hidden",
+        padding: "20px 0",
         '&::-webkit-scrollbar': {
-            width: '8px',
+            width: '5px',
 
         },
         '&::-webkit-scrollbar-track': {
@@ -31,29 +35,79 @@ const style = {
         },
     },
     stack: {
-        background:"pink",
-        width:"100%"
+        width: "100%"
     },
-    singleChat:{
-        width:"100%",
-        height:"100%",
-        background:"blue"
-    },
-    chatBroadcast:{
-        width:"100%",
-        height:"6vh",
-        background:"violet"
-    },
-    chatJoinRoom:{
-        width:"100%",
-        height:"3vh",
-        background:"orange",
+    singleChat: {
+        width: "100%",
+        height: "100%",
         display:"flex",
-        alignItems:"center",
-        justifyContent:"center"
     },
-    chatJoinRoomTypography:{
+    chatBroadcast: {
+        width: "40%",
+        maxWidth: "33vw",
+        bgcolor: "secondary.main",
+        borderRadius: "8px",
+        display: "flex",
+        flexDirection: 'column',
+        overflow: 'hidden',
+        maxHeight: "50vh",
+        margin: "0 30px",
+    },
+    chatJoinRoom: {
+        width: "100%",
+        height: "3vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    chatJoinRoomTypography: {
         color: "text.disabled"
+    },
+    chatTimestamp: {
+        display: "flex",
+        width: "15%",
+        alignItems: "flex-end",
+        justifyContent: "center"
+    },
+    chatMessageText: {
+        color: "text.main",
+        margin: "0"
+    },
+    singleChatContainer: {
+        width: "calc(100%-10px)",
+        height: "calc(100%-2vh)",
+        flexGrow: 1,
+        overflow: 'hidden',
+        marginLeft: "10px",
+        marginTop: "1vh",
+        marginBottom: "1vh"
+    },
+    chatMessageTimeSection: {
+        display: "flex",
+        height: "calc(80% - 5px)",
+        marginTop: "5px"
+    },
+    chatInput: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "13%",
+        width: "98%",
+        margin:"0 1%",
+        bgcolor:"secondary.main",
+        borderRadius:"12px",
+    },
+    chatTextArea: {
+        height: "75%",
+        width: "80%",
+        outline: "none",
+        border: "none",
+        overflow: "hidden",
+        resize: "none",
+        fontFamily: 'Nunito, Arial, sans-serif',
+        color:"white", 
+        paddingLeft:"1vw",
+        background:"transparent"
     }
 }
 
