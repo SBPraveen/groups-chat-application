@@ -10,6 +10,7 @@
   "author": "yesbee",
   "license": "ISC",
   "dependencies": {
+    "redis": "^4.6.15",
     "uuid": "^10.0.0",
     "ws": "^8.18.0"
   }

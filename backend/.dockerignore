@@ -1,0 +1,12 @@
+cdk
+node_modules
+pipeline
+.dccache
+swagger.yaml
+test
+README.md
+.github
+.husky
+*/buildspec*
+*.sh
+taskdef.json
