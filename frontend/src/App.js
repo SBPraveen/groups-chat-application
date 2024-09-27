@@ -64,7 +64,7 @@ function App() {
           </Grid>
         </Grid>
         <Box sx={style.chatBody}>
-          <Chat chatData={chatData} userName={userName} setChatData={setChatData} />
+          <Chat chatData={chatData} userName={userName} setChatData={setChatData} roomId={roomId}/>
         </Box>
         <Box sx={style.serverDetails}>
           {isConnected &&

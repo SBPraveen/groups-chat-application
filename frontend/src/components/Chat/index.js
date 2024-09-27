@@ -7,11 +7,11 @@ import SendIcon from '@mui/icons-material/Send';
 import { webSocketSendMessage } from '../../functions/websocket.js';
 import { v4 as uuidv4 } from 'uuid';
 
-const Chat = ({chatData, userName, setChatData}) => {
+const Chat = ({chatData, userName, setChatData, roomId}) => {
     const [chatMessageData, setChatMessageData] = useState("")
 
     const handleSendMessageData = () => {
-        const messageObj = { "action": "broadcast", "message": chatMessageData, timeStamp: Date.now(), userName, msgId:uuidv4()}
+        const messageObj = { "action": "broadcast", "message": chatMessageData, timeStamp: Date.now(), userName, msgId:uuidv4(), roomId}
         webSocketSendMessage(messageObj)
         setChatMessageData("")
         setChatData([...JSON.parse(JSON.stringify(chatData)), messageObj])

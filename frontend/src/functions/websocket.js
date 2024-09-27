@@ -4,7 +4,8 @@ let ws, nameUser
 
 export const initiateWebSocketConnection = (userName, roomId, setIsConnected, chatData, setChatData, setServerId) => {
     try {
-        ws = new WebSocket("ws://localhost:8080")
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+        ws = new WebSocket(randomNumber%2===0 ? "ws://localhost:8080": "ws://localhost:8081")
 
         nameUser=userName
 
